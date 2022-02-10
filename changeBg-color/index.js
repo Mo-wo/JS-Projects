@@ -4,22 +4,22 @@ window.addEventListener('load', (event) => {
    let body = document.getElementsByTagName("body")[0];
    let btn = document.getElementsByTagName("button")[0];
 
-   // Solution 1 Using forEach Method
+    //Solution Using function
+    function changeBg(){
+      const colorIndex = parseInt(Math.random()*colors.length);
+         body.style.backgroundColor = colors[colorIndex];
+      };
+      btn.addEventListener('click', changeBg);
+
+   // Solution Using forEach Method
    // btn.addEventListener('click', function(e){
    //    colors.forEach(function(color){
    //       const colorIndex = parseInt(Math.random()*colors.length);
    //       body.style.backgroundColor = colors[colorIndex];
    //    });
    // });
-
-   //Solution 2 Using function
-   function changeBg(){
-   const colorIndex = parseInt(Math.random()*colors.length);
-      body.style.backgroundColor = colors[colorIndex];
-   };
-   btn.addEventListener('click', changeBg);
-
-   // //Solution 3 Using for loop
+  
+   // //Solution Using for loop
    // function changeBg(){
    //    for (let i=0; i<colors.length; i++){
    //       console.log(i)
