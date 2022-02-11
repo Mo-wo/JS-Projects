@@ -3,6 +3,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.8s ease-in;
 }
 h1{
     position: absolute;
