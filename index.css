@@ -1,0 +1,21 @@
+body{
+    background-color: #ffe4c4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    position: absolute;
+    top: 40%;
+    opacity:1;
+}
+button{
+    position: absolute;
+    top: 50%;
+    height: 30px;
+    border: 2px solid brown;
+    border-radius: 10px;
+    background-color: rgba(245, 222, 179, 0);
+    color: brown;
+    cursor: pointer;
+}
