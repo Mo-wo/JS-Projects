@@ -10,6 +10,8 @@ window.addEventListener('load', (e) => {
     let increment = document.getElementsByTagName('button')[2];
     let autoCount = document.getElementsByTagName('button')[3];
     let countdown = document.getElementsByTagName('button')[4];
+    let select = document.getElementsByTagName('select')[0];
+    console.log(select);
 
     //Added Elements for Auto Count
     let stopCount = document.createElement('button');
@@ -26,6 +28,8 @@ window.addEventListener('load', (e) => {
     let countdownControl = document.createElement('div');
     numberCount.textContent = 'Countdown with Number';
     timeCount.textContent = 'Countdown with Time';
+
+    numberCount.appendChild(select)
     countdownControl.appendChild(numberCount);
     countdownControl.appendChild(timeCount);
     
