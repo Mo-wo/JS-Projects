@@ -1,4 +1,5 @@
 window.addEventListener('load', (e) => {
+    //HTML Element Variables
     let counter = Number(document.getElementsByTagName('h1')[1].textContent);
     let count = document.getElementById('count');
     console.log(count);
@@ -10,86 +11,119 @@ window.addEventListener('load', (e) => {
     let autoCount = document.getElementsByTagName('button')[3];
     let countdown = document.getElementsByTagName('button')[4];
 
+    //Added Elements for Auto Count
     let stopCount = document.createElement('button');
     let decreaseCount = document.createElement('button');
     let autoCountControl = document.createElement('div');
-
     stopCount.textContent = 'Stop Auto Count'
     decreaseCount.textContent = 'Decrease Auto Count'
-
     autoCountControl.appendChild(stopCount);
     autoCountControl.appendChild(decreaseCount);
-    let clicked = false;
     
+    //Added Elements for Countdown
+    let numberCount = document.createElement('button');
+    let timeCount = document.createElement('button');
+    let countdownControl = document.createElement('div');
+    numberCount.textContent = 'Countdown with Number';
+    timeCount.textContent = 'Countdown with Time';
+    countdownControl.appendChild(numberCount);
+    countdownControl.appendChild(timeCount);
     
+    //Counter Display Colors
+    function counterColor(){
+        if(counter > 0){
+            counterDisplay.style.color = 'blue' 
+        }else if (counter <= -1){
+            counterDisplay.style.color = 'red' 
+        }else{
+            counterDisplay.style.color = 'green'
+        }
+    };
+    
+    //Counter Decrease Button
     decrement.addEventListener('click', (e) => {
        counter--
        let decrease = counter.toString();
        counterDisplay.textContent = decrease; 
-        if (counter < 0){
-            counterDisplay.style.color = 'red';
-        }else if (counter == 0){
-            counterDisplay.style.color = 'green';
-        };
+       counterColor()
     });
 
-    reset.addEventListener('click', (e) => {
-        clicked = true;
+    //Counter Reset Button
+    function resetCount(){
         counter = 0;
         counterDisplay.textContent = counter; 
         counterDisplay.style.color = 'green';
+    }
+
+    reset.addEventListener('click', (e) => {
+        stopAutoCount()
+        resetCount()
     });
 
+    //Counter Increase Button
     increment.addEventListener('click', (e) => {
         counter++
         let increase = counter.toString();
         counterDisplay.textContent = increase; 
-        if (counter <= -1){
-            counterDisplay.style.color = 'red';
-        }else if (counter > 0) {
-            counterDisplay.style.color = 'blue';
-        }else{
-            counterDisplay.style.color = 'green';
-        };
+        counterColor()
      });
     
-     
+    // Auto Count Button 
     function counting(){
-       let autoCountUp = counter++;  
+       let autoCountUp = ++counter;  
        counterDisplay.textContent = autoCountUp; 
+       counterColor();
     }
     let countUp;
 
     autoCount.addEventListener('click', (e) => {
         control.appendChild(autoCountControl);
-        clearInterval(countDown)
+        autoCountControl.style.display = 'block'
+        clearInterval(countingDown)
         clearInterval(countUp);
         countUp = setInterval(counting, 1000);
-        counterDisplay.style.color = 'blue';
+
+        if (countdownControl.style.display == 'block'){
+            countdownControl.style.display = 'none';
+        };
     });
 
-    stopCount.addEventListener('click', (e) => {
+    //Added Element
+    //Stop Count Button
+    function stopAutoCount(){
         clearInterval(countUp);
-        clearInterval(countDown);
-        counter = 0;
+        clearInterval(countingDown);
+    };
+
+    stopCount.addEventListener('click', (e) => {
+        stopAutoCount();
         counterDisplay.textContent = counter;
     });
 
+    //Decrease Count Button
     function down(){
         clearInterval(countUp)
-        let autoCountDown = counter--;  
+        let autoCountDown = --counter;  
         counterDisplay.textContent = autoCountDown; 
-        if (counter <= -1){
-            counterDisplay.style.color = 'red'
-        }else {
-            counterDisplay.style.color = 'blue'
-        }
+        counterColor();
     };
-    let countDown;
-
+    
+    let countingDown;
     decreaseCount.addEventListener('click', (e) => {
-        clearInterval(countDown);
-        countDown = setInterval(down, 1000);
+        clearInterval(countingDown);
+        countingDown = setInterval(down, 1000);
+    });
+    
+    // Countdown Button 
+    countdown.addEventListener('click', (e) => {
+        stopAutoCount();
+        resetCount();
+        control.appendChild(countdownControl);
+        countdownControl.style.display = 'block';
         
-    })
+        if (autoCountControl.style.display == 'block'){
+            autoCountControl.style.display = 'none';
+        };
+    });
+    
 });
