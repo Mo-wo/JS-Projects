@@ -130,17 +130,27 @@ window.addEventListener('load', (e) => {
     });
 
     //Added Countdown Elements
-    // let values = select.children;        
-    let values = Array.from(select.children)
-    console.log(values);
-    values.forEach((value) => {
-        // console.log(value);
-        value.addEventListener('click', (e) => {
-            console.log(value.innerHTML)
-            console.log(`working`)
+    // function countValue(){
+    //     let values = Array.from(select.children)
+    //     console.log(values);
+    //     values.forEach((value) => {
+    //         console.log(value.innerHTML);
+    //         value.addEventListener('click', (e) => {
+    //         console.log(e.target);
+    //         console.log(`working`);
 
-        })
-    })
+    //     });        
+    // }
+
+    // function testing(){
+        let values = select.children
+        values.addEventListener('click', (e) => {
+            console.log(e.target);
+            console.log(`working`);
+        });
+        // });
+    // };
+    // testing()
     // value
 
     // select.addEventListener('click', (e) => {
