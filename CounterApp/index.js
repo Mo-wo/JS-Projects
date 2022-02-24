@@ -2,7 +2,6 @@ window.addEventListener('load', (e) => {
     //HTML Element Variables
     let counter = Number(document.getElementsByTagName('h1')[1].textContent);
     let count = document.getElementById('count');
-    console.log(count);
     let counterDisplay = document.getElementsByTagName('h1')[1];
     let control = document.getElementById('control');
     let decrement = document.getElementsByTagName('button')[0];
@@ -11,7 +10,7 @@ window.addEventListener('load', (e) => {
     let autoCount = document.getElementsByTagName('button')[3];
     let countdown = document.getElementsByTagName('button')[4];
     let select = document.getElementsByTagName('select')[0];
-    console.log(select);
+    let added = document.getElementById('added');
 
     //Added Elements for Auto Count
     let stopCount = document.createElement('button');
@@ -81,7 +80,7 @@ window.addEventListener('load', (e) => {
     let countUp;
 
     autoCount.addEventListener('click', (e) => {
-        control.appendChild(autoCountControl);
+        added.appendChild(autoCountControl);
         autoCountControl.style.display = 'block'
         clearInterval(countingDown)
         clearInterval(countUp);
@@ -92,7 +91,7 @@ window.addEventListener('load', (e) => {
         };
     });
 
-    //Added Element
+    //Added Auto Count Elements
     //Stop Count Button
     function stopAutoCount(){
         clearInterval(countUp);
@@ -122,12 +121,57 @@ window.addEventListener('load', (e) => {
     countdown.addEventListener('click', (e) => {
         stopAutoCount();
         resetCount();
-        control.appendChild(countdownControl);
+        added.appendChild(countdownControl);
         countdownControl.style.display = 'block';
         
         if (autoCountControl.style.display == 'block'){
             autoCountControl.style.display = 'none';
         };
     });
+
+    //Added Countdown Elements
+    // let values = select.children;        
+    let values = Array.from(select.children)
+    console.log(values);
+    values.forEach((value) => {
+        // console.log(value);
+        value.addEventListener('click', (e) => {
+            console.log(value.innerHTML)
+            console.log(`working`)
+
+        })
+    })
+    // value
+
+    // select.addEventListener('click', (e) => {
+    //     
+    //     value.forEach((value) => {
+    //         // let counter = values.textContent;
+    //         console.log(`My value is ${counter}`);
+    //     });
+        
+        // if (e.target == select){
+        //     Array.from(values).forEach((value) => {
+        //         let counter = value.textContent;
+        //         console.log(counter)
+        //     });         
+        // } else{
+        //     console.log('not select')
+        // }
+        // let option = document.getElementsByTagName('option');
+        // Array.from(option).forEach((option) => {
+        //     console.log(e.target)
+        // });
+        // let value =  e.target.option.value
+        // console.log(value)
+        // if (e.target = option){
+        //     Array.from(option).forEach((option) => {
+        //        counter = value;
+        //        --counter;
+        //        clearInterval(countingDown);
+        //        countingDown = setInterval(down, 1000);
+        //     });
+        // }
+    // });
     
 });

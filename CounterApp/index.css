@@ -37,6 +37,14 @@ button{
     border-radius: 10px 0;
     cursor: pointer;
 }
+select{
+    margin-left: 15px;
+    border: none;
+}
+select:focus{
+    outline: 1px solid black;
+    border-radius: 2px;
+}
 @media screen and (min-width: 240px) {
     #control{
         flex-wrap: wrap;
