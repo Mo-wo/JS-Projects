@@ -10,6 +10,7 @@ window.addEventListener('load', (e) => {
     let autoCount = document.getElementsByTagName('button')[3];
     let countdown = document.getElementsByTagName('button')[4];
     let select = document.getElementsByTagName('select')[0];
+    let options = document.getElementsByTagName('option');
     let added = document.getElementById('added');
 
     //Added Elements for Auto Count
@@ -142,46 +143,18 @@ window.addEventListener('load', (e) => {
     //     });        
     // }
 
-    // function testing(){
-        let values = select.children
-        values.addEventListener('click', (e) => {
-            console.log(e.target);
-            console.log(`working`);
-        });
-        // });
-    // };
-    // testing()
-    // value
 
-    // select.addEventListener('click', (e) => {
-    //     
-    //     value.forEach((value) => {
-    //         // let counter = values.textContent;
-    //         console.log(`My value is ${counter}`);
-    //     });
+        select.addEventListener('click', (e) => {
+        let values = Array.from(select.children);
+            if (e.target.tagName == 'option'){
+                console.log(e.target);
+                values.forEach((value) => {
+                    console.log(e.target);
+                });
+            }
+        })
+
+        //Read Select element event listener
         
-        // if (e.target == select){
-        //     Array.from(values).forEach((value) => {
-        //         let counter = value.textContent;
-        //         console.log(counter)
-        //     });         
-        // } else{
-        //     console.log('not select')
-        // }
-        // let option = document.getElementsByTagName('option');
-        // Array.from(option).forEach((option) => {
-        //     console.log(e.target)
-        // });
-        // let value =  e.target.option.value
-        // console.log(value)
-        // if (e.target = option){
-        //     Array.from(option).forEach((option) => {
-        //        counter = value;
-        //        --counter;
-        //        clearInterval(countingDown);
-        //        countingDown = setInterval(down, 1000);
-        //     });
-        // }
-    // });
     
 });
