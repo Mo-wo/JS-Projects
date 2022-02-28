@@ -1,0 +1,46 @@
+*{
+    border-radius: 10px;
+}
+body{
+    background-color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: grey;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+#counter-display{
+   border: 2px solid gray;
+   padding: 10px 50px;
+   border-radius: 10px;
+   text-align: center;
+   margin: 40px 0;
+
+}
+#control{
+    display: flex;
+    justify-content: space-between;
+
+}
+button{
+    margin: 20px;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid gainsboro;
+    border-radius: 10px 0;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+    color: rgb(94, 89, 89);
+}
+
+@media screen and (min-width: 220px) {
+    #control{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
